@@ -14,16 +14,16 @@ import cucumber.api.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class AdactinLogin {
-	
+
 	WebDriver driver;
-	
+
 	@Given("User is on the Adactinhotel page")
 	public void user_is_on_the_Adactinhotel_page() {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		driver.get("https://adactinhotelapp.com/");
 		driver.manage().window().maximize();
-//		driver.manage().timeouts().implicitlyWait(12, TimeUnit.SECONDS);
+		// driver.manage().timeouts().implicitlyWait(12, TimeUnit.SECONDS);
 	}
 
 	@When("User should login using {string} and {string}")
@@ -37,7 +37,8 @@ public class AdactinLogin {
 	}
 
 	@When("User should search hotel {string}, {string}, {string}, {string}, {string}, {string}, {string}and {string}")
-	public void user_should_search_hotel_and(String location, String hotels, String roomtype, String noofrooms, String checkin, String checkout, String adults, String childs) {
+	public void user_should_search_hotel_and(String location, String hotels, String roomtype, String noofrooms,
+			String checkin, String checkout, String adults, String childs) {
 		WebElement place = driver.findElement(By.id("location"));
 		place.sendKeys(location);
 		WebElement hotel = driver.findElement(By.id("hotels"));
@@ -71,7 +72,8 @@ public class AdactinLogin {
 	}
 
 	@When("User should book a hotel by providing {string}, {string}, {string}, {string}, {string}, {string}, {string}and {string}")
-	public void user_should_book_a_hotel_by_providing_and(String firstname, String lastname, String address, String ccno, String cctype, String month, String year, String cvv) {
+	public void user_should_book_a_hotel_by_providing_and(String firstname, String lastname, String address,
+			String ccno, String cctype, String month, String year, String cvv) {
 		WebElement first = driver.findElement(By.id("first_name"));
 		first.sendKeys(firstname);
 		WebElement last = driver.findElement(By.id("last_name"));
@@ -79,7 +81,7 @@ public class AdactinLogin {
 		WebElement add = driver.findElement(By.id("address"));
 		add.sendKeys(address);
 		WebElement ccn = driver.findElement(By.id("cc_num"));
-		ccn.sendKeys(ccno);		
+		ccn.sendKeys(ccno);
 		WebElement cct = driver.findElement(By.id("cc_type"));
 		cct.sendKeys(cctype);
 		WebElement mon = driver.findElement(By.id("cc_exp_month"));
@@ -93,17 +95,17 @@ public class AdactinLogin {
 	@When("User should book hotel using Book now")
 	public void user_should_book_hotel_using_Book_now() {
 		WebElement book = driver.findElement(By.id("book_now"));
-		book.click();		
+		book.click();
 	}
-	
+
 	@Then("User should conform booking using Order no")
 	public void user_should_conform_booking_using_Order_no() throws Exception {
 		Thread.sleep(5000);
 		WebElement order = driver.findElement(By.id("order_no"));
 		String text = order.getAttribute("value");
-		System.out.println("Order no :"+text);
-		
-System.out.println("uncle");
+		System.out.println("Order no :" + text);
+
+		System.out.println("uncle");
 		System.out.println("Aunty");
 	}
 
