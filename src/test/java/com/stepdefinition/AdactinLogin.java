@@ -102,6 +102,13 @@ public class AdactinLogin {
 		WebElement order = driver.findElement(By.id("order_no"));
 		String text = order.getAttribute("value");
 		System.out.println("Order no :"+text);
+		
+		System.out.println("uncle");
+		
+	
+		
+		
+		
 	}
 
 }
